@@ -51,13 +51,16 @@ var app = app || {};
 		render: function () {
 			var completed = app.todos.completed().length;
 			var remaining = app.todos.remaining().length;
+			var priority = app.todos.priority().length;
+			
 			if (app.todos.length) {
 				this.$main.show();
 				this.$footer.show();
 
 				this.$footer.html(this.statsTemplate({
 					completed: completed,
-					remaining: remaining
+					remaining: remaining,
+					priority: priority
 				}));
 
 				this.$('#filters li a')
@@ -98,7 +101,8 @@ var app = app || {};
 			return {
 				title: this.$input.val().trim(),
 				order: app.todos.nextOrder(),
-				completed: false
+				completed: false,
+				priority: false
 			};
 		},
 
