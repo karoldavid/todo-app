@@ -51,7 +51,6 @@ var app = app || {};
 		render: function () {
 			var completed = app.todos.completed().length;
 			var remaining = app.todos.remaining().length;
-
 			if (app.todos.length) {
 				this.$main.show();
 				this.$footer.show();
